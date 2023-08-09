@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Button from './components/button';
+import Tab from './components/tab';
+import './tailwind.css';
 
 function App() {
+  const todos = ['todo1', 'todo2', 'todo3'];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div style={{padding: 20}}>
+        <Tab>
+          <Tab.Panel>1. tab</Tab.Panel>
+          <Tab.Panel>2. tab</Tab.Panel>
+          <Tab.Panel>3. tab</Tab.Panel>
+        </Tab>
+      </div>
+
+      <div style={{padding: 20}}>
+        <Button text="Buton örneği" />
+        <Button text="Buton örneği" variant="success" />
+        <Button text="Buton örneği" variant="danger" />
+        <Button text="Buton örneği" variant="warning" />
+      </div>
+      <h1 tabIndex={3} style={{color: 'red', backgroundColor: 'yellow'}}>
+        prototurk
+      </h1>
+      <label htmlFor="search" tabIndex={2} onClick={() => alert('merhaba')}>
+        arama
+      </label>
+      <input type="text" id="search" tabIndex={1} />
+      <ul>
+        {todos.map((todo, index) => (
+          <li key={index}>{todo}</li>
+        ))}
+      </ul>
+    </>
   );
 }
 
